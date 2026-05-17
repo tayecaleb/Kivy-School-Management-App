@@ -55,6 +55,7 @@ class SidebarLeft(MDBoxLayout):
     ussserimage = StringProperty("assets/avatars.jfif")
     ussserfirstname = StringProperty()
     ussserschoolname = StringProperty()
+    active = ListProperty([False, False, False, False, False, False, False])
 
 
 class NavigationItem(ButtonBehavior, MDBoxLayout):

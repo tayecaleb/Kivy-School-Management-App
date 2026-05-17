@@ -1,11 +1,11 @@
-Home_Screen = '''
+Student_Screen = '''
 
 # ScreenManager:
 #     ## transition: FadeTransition()
 #     id: screen_manager
     
     MDScreen:
-        name: "Home Screen"
+        name: "Student Screen"
         EffectWidget:
             effects: [ew.VerticalBlurEffect(size=10), ew.HorizontalBlurEffect(size=10)]
             FitImage:
@@ -20,7 +20,7 @@ Home_Screen = '''
             MDBoxLayout:
                 size_hint_x: .2
                 orientation: "vertical"
-                id: side_bar_box
+                id: side_bar_student
                 
 
         
@@ -111,7 +111,7 @@ Home_Screen = '''
                                     Widget:
 
                             MDRoundFlatIconButton:
-                                id: grade_button  # Added ID
+                                id: grade_button_Student  # Added ID
                                 text: "All Grades"
                                 icon: "chevron-down"
                                 icon_position: "right"  # Moves arrow to the right side
@@ -123,7 +123,7 @@ Home_Screen = '''
 
                             # Filters (Dropdown Placeholders)
                             MDRoundFlatIconButton:
-                                id: dept_button  # Added ID
+                                id: dept_button_Student  # Added ID
                                 text: "All Departments"
                                 icon: "chevron-down"
                                 icon_position: "right"  # Moves arrow to the right side
@@ -209,7 +209,7 @@ Home_Screen = '''
                                     bold: True
                             # The RecycleView
                             RecycleView:
-                                id: rv
+                                id: rv_Student
                                 viewclass: 'StudentRow'
                                 size_hint_y: None
                                 height: dp(270)  # Use dp for consistency across devices
@@ -242,7 +242,7 @@ Home_Screen = '''
                                         width: 1
 
                                 MDLabel:
-                                    id: page_num
+                                    id: page_num_Student
                                     text: "Page 1 of 5"
                                     font_style: "Caption"
                                     theme_text_color: "Secondary"
@@ -252,7 +252,7 @@ Home_Screen = '''
                                 
                                 MDIconButton:
                                     icon: "chevron-left"
-                                    on_release: app.prev_page()
+                                    on_release: app.prev_page_Student()
                                 
                               
                                 # Optional: Page Numbers (simplified)
@@ -271,7 +271,7 @@ Home_Screen = '''
                                         md_bg_color: 0.3, 0.4, 1, 0.1
                                         Widget:
                                         MDLabel:
-                                            id: cur_page_num
+                                            id: cur_page_num_Student
                                             text: "1"
                                             font_style: "Caption"
                                             theme_text_color: "Secondary"
@@ -291,7 +291,7 @@ Home_Screen = '''
                             
                                 MDIconButton:
                                     icon: "chevron-right"
-                                    on_release: app.next_page()
+                                    on_release: app.next_page_Student()
 
                         Widget:
 

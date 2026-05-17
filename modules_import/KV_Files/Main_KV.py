@@ -383,6 +383,7 @@ Main_KV = '''
         height: 15
 
     MDBoxLayout:
+        id: nav_container
         orientation: 'vertical'
         size_hint_y: None
         height: 520
@@ -394,50 +395,48 @@ Main_KV = '''
             text: "Students"
             icon: "school"
             badge_text: "10"
-            active: True
-            on_release: app.set_active(self)
+            active: root.active[0]
+            on_release: app.navigateToStudent("Student Screen")
         
         NavigationItem:
             id: item_past_students
             text: "Past Students"
             icon: "school"
             badge_text: "30"
-            active: False
-            on_release: app.set_active(self)
+            active: root.active[1]
+            on_release: app.navigateToStudent("Past Student Screen")
 
         NavigationItem:
             id: item_teachers
             text: "Teachers"
             icon: "account-supervisor"
             badge_text: "20"
-            active: False
-            on_release: app.set_active(self)
+            active: root.active[2]
 
         NavigationItem:
             id: item_past_teachers
             text: "Past Teachers"
             icon: "account-supervisor"
             badge_text: "10"
-            active: False
-            on_release: app.set_active(self)
+            active: root.active[3]
 
         NavigationItem:
             id: item_courses
             text: "Courses"
             icon: "book-open-variant"
-            on_release: app.set_active(self)
+            active: root.active[4]
 
         NavigationItem:
             id: item_courses
-            text: "Departments"
+            text: "Grades & Departments"
             icon: "bank"
-            on_release: app.set_active(self)
+            active: root.active[5]
 
         NavigationItem:
             id: item_departments
             text: "Settings"
             icon: "cog"
-            on_release: app.set_active(self)
+            active: root.active[6]
 
         NavigationItem:
             id: item_logout
