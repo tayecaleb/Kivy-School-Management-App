@@ -53,12 +53,12 @@ Main_KV = '''
             orientation: "vertical"
             pos_hint: {"center_y": .5}
             MDLabel:
-                text: root.name
+                text: root.names
                 bold: True
                 font_style: "Body2"
                 adaptive_height: True
             MDLabel:
-                text: root.email
+                text: root.grade
                 font_style: "Caption"
                 theme_text_color: "Hint"
                 adaptive_height: True
@@ -69,31 +69,283 @@ Main_KV = '''
         font_style: "Body2"
 
     MDLabel:
-        text: root.year
+        text: root.date_joined
         size_hint_x: 0.1
         font_style: "Body2"
 
     MDBoxLayout:
         size_hint_x: 0.1
-        MDLabel:
-            text: root.gpa
+        orientation: "vertical"
+
+        Widget:
+        MDFlatButton:
+            text: "Attendance"
             theme_text_color: "Custom"
-            text_color: 0.1, 0.7, 0.3, 1
-            bold: True
+            text_color: 0, 0.4, 0, 1
+            md_bg_color: 0.8, 1, 0.8, 1
+
+        Widget:
+
+        
+    MDBoxLayout:
+        size_hint_x: 0.1
+        orientation: "vertical"
+        Widget:
+        MDFlatButton:
+            text: "Accessment"
+            theme_text_color: "Custom"
+            text_color: 1, 0, 0, 1  # Pure Red
+            md_bg_color: 0.3, 0, 0, 0.2
+
+        Widget:
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 0.1
+        Widget:
+            size_hint_y: None
+            height: 50
+        MDBoxLayout:
+            spacing: "4dp"
+            MDIconButton:
+                icon: "pencil-outline"
+                theme_text_color: "Custom"
+                text_color: 0.3, 0.4, 1, 1
+            MDIconButton:
+                icon: "trash-can-outline"
+                theme_text_color: "Custom"
+                text_color: 1, 0.3, 0.3, 1
+        Widget:
+
+
+        
+<TeacherRow>:
+    orientation: "horizontal"
+    md_bg_color: rgba("#ffffff")
+    padding: ["10dp", 0, "10dp", 0]
+    canvas.before:
+        Color:
+            rgba: [0.95, 0.95, 0.97, 1]
+        Line:
+            points: [self.x, self.y, self.right, self.y]
+            width: 1
+
+    MDLabel:
+        text: root.id_text
+        size_hint_x: 0.1
+        font_style: "Caption"
+        theme_text_color: "Hint"
+
+    MDBoxLayout:
+        size_hint_x: 0.3
+        spacing: "12dp"
+        padding: ["5dp", "10dp"]
+        MDBoxLayout:
+            size_hint: None, None
+            size: "40dp", "40dp"
+            md_bg_color: root.avatar_color
+            radius: [20, ]
+            pos_hint: {"center_y": .5}
+            MDLabel:
+                text: root.initials
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                font_style: "Caption"
+                bold: True
+        MDBoxLayout:
+            orientation: "vertical"
+            pos_hint: {"center_y": .5}
+            MDLabel:
+                text: root.names
+                bold: True
+                font_style: "Body2"
+                adaptive_height: True
+            MDLabel:
+                text: root.email
+                font_style: "Caption"
+                theme_text_color: "Hint"
+                adaptive_height: True
+
+
+    MDLabel:
+        text: root.date_joined
+        size_hint_x: 0.1
+        font_style: "Body2"
 
     MDBoxLayout:
         size_hint_x: 0.1
-        padding: [0, "20dp"]
+        orientation: "vertical"
+
+        Widget:
+        MDFlatButton:
+            text: "Grades"
+            theme_text_color: "Custom"
+            text_color: 0, 0.4, 0, 1
+            md_bg_color: 0.8, 1, 0.8, 1
+
+        Widget:
+
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 0.1
+        Widget:
+            size_hint_y: None
+            height: 50
         MDBoxLayout:
-            md_bg_color: [0.1, 0.8, 0.4, 0.1] if root.status == "Active" else [1, 0.6, 0.1, 0.1]
-            radius: [12, ]
-            MDLabel:
-                text: "• " + root.status
+            spacing: "4dp"
+            MDIconButton:
+                icon: "pencil-outline"
                 theme_text_color: "Custom"
-                text_color: [0.1, 0.7, 0.3, 1] if root.status == "Active" else [0.9, 0.5, 0, 1]
-                font_style: "Caption"
+                text_color: 0.3, 0.4, 1, 1
+            MDIconButton:
+                icon: "trash-can-outline"
+                theme_text_color: "Custom"
+                text_color: 1, 0.3, 0.3, 1
+        Widget:
+
+
+        
+<CourseRow>:
+    orientation: "horizontal"
+    md_bg_color: rgba("#ffffff")
+    padding: ["10dp", 0, "10dp", 0]
+    canvas.before:
+        Color:
+            rgba: [0.95, 0.95, 0.97, 1]
+        Line:
+            points: [self.x, self.y, self.right, self.y]
+            width: 1
+
+    MDLabel:
+        text: root.id_text
+        size_hint_x: 0.1
+        font_style: "Caption"
+        theme_text_color: "Hint"
+
+    MDBoxLayout:
+        size_hint_x: 0.3
+        spacing: "12dp"
+        padding: ["5dp", "10dp"]
+       
+        MDBoxLayout:
+            orientation: "vertical"
+            pos_hint: {"center_y": .5}
+            MDLabel:
+                text: root.course
                 bold: True
-                halign: "center"
+                font_style: "Body2"
+                adaptive_height: True
+            MDLabel:
+                text: root.grades
+                font_style: "Caption"
+                theme_text_color: "Hint"
+                adaptive_height: True
+
+    MDLabel:
+        text: root.departments
+        size_hint_x: 0.3
+        font_style: "Caption"
+        theme_text_color: "Hint"
+
+    MDLabel:
+        text: root.date_created
+        size_hint_x: 0.1
+        font_style: "Body2"
+
+    MDBoxLayout:
+        size_hint_x: 0.1
+        orientation: "vertical"
+
+        Widget:
+        MDFlatButton:
+            text: "Teachers"
+            theme_text_color: "Custom"
+            text_color: 0, 0.4, 0, 1
+            md_bg_color: 0.8, 1, 0.8, 1
+
+        Widget:
+
+
+
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 0.1
+        Widget:
+            size_hint_y: None
+            height: 50
+        MDBoxLayout:
+            spacing: "4dp"
+            MDIconButton:
+                icon: "pencil-outline"
+                theme_text_color: "Custom"
+                text_color: 0.3, 0.4, 1, 1
+            MDIconButton:
+                icon: "trash-can-outline"
+                theme_text_color: "Custom"
+                text_color: 1, 0.3, 0.3, 1
+        Widget:
+
+
+<GradeRow>:
+    orientation: "horizontal"
+    md_bg_color: rgba("#ffffff")
+    padding: ["10dp", 0, "10dp", 0]
+    canvas.before:
+        Color:
+            rgba: [0.95, 0.95, 0.97, 1]
+        Line:
+            points: [self.x, self.y, self.right, self.y]
+            width: 1
+
+    MDLabel:
+        text: root.id_text
+        size_hint_x: 0.1
+        font_style: "Caption"
+        theme_text_color: "Hint"
+
+    MDBoxLayout:
+        size_hint_x: 0.3
+        spacing: "12dp"
+        padding: ["5dp", "10dp"]
+       
+        MDBoxLayout:
+            orientation: "vertical"
+            pos_hint: {"center_y": .5}
+            MDLabel:
+                text: root.grade
+                bold: True
+                font_style: "Body2"
+                adaptive_height: True
+            MDLabel:
+                text: root.departments
+                font_style: "Caption"
+                theme_text_color: "Hint"
+                adaptive_height: True
+
+ 
+
+    MDLabel:
+        text: root.date_created
+        size_hint_x: 0.1
+        font_style: "Body2"
+
+    MDBoxLayout:
+        size_hint_x: 0.1
+        orientation: "vertical"
+
+        Widget:
+        MDFlatButton:
+            text: "Departments"
+            theme_text_color: "Custom"
+            text_color: 0, 0.4, 0, 1
+            md_bg_color: 0.8, 1, 0.8, 1
+
+        Widget:
+
+
 
     BoxLayout:
         orientation: "vertical"
@@ -217,7 +469,7 @@ Main_KV = '''
         width: 5
 
     MDRectangleFlatIconButton:
-        text: "Add Student"
+        text: root.buttonText
         icon: "plus"
         theme_text_color: "Custom"
         text_color: 1, 1, 1, 1
@@ -412,6 +664,7 @@ Main_KV = '''
             icon: "account-supervisor"
             badge_text: "20"
             active: root.active[2]
+            on_release: app.navigateToStudent("Teacher Screen")
 
         NavigationItem:
             id: item_past_teachers
@@ -419,18 +672,22 @@ Main_KV = '''
             icon: "account-supervisor"
             badge_text: "10"
             active: root.active[3]
+            on_release: app.navigateToStudent("Past Teacher Screen")
 
         NavigationItem:
             id: item_courses
             text: "Courses"
             icon: "book-open-variant"
             active: root.active[4]
+            on_release: app.navigateToStudent("Course Screen")
 
         NavigationItem:
             id: item_courses
             text: "Grades & Departments"
             icon: "bank"
             active: root.active[5]
+            on_release: app.navigateToStudent("Grade Screen")
+
 
         NavigationItem:
             id: item_departments

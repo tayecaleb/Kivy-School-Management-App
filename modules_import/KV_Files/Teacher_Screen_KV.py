@@ -1,11 +1,11 @@
-Past_Student_Screen = '''
+Teacher_Screen = '''
 
 # ScreenManager:
 #     ## transition: FadeTransition()
 #     id: screen_manager
     
     MDScreen:
-        name: "Past Student Screen"
+        name: "Teacher Screen"
         EffectWidget:
             effects: [ew.VerticalBlurEffect(size=10), ew.HorizontalBlurEffect(size=10)]
             FitImage:
@@ -20,7 +20,7 @@ Past_Student_Screen = '''
             MDBoxLayout:
                 size_hint_x: .2
                 orientation: "vertical"
-                id: side_bar_past_student
+                id: side_bar_teacher
                 
 
         
@@ -28,9 +28,9 @@ Past_Student_Screen = '''
                 size_hint_x: .8
                 orientation: "vertical"  
                 NavbarTop:
-                    text: "Students"
-                    bottomText: "StudentOS › Students"
-                    buttonText: "Add Student"
+                    text: "Teachers"
+                    bottomText: "TeacherOS › Teachers"
+                    buttonText: "Add Teacher"
 
                 MDBoxLayout:
                     orientation: "vertical"  
@@ -51,7 +51,7 @@ Past_Student_Screen = '''
                             StatCard:
                                 icon: "school"
                                 icon_bg_color: 0.9, 0.9, 1, 1
-                                title: "Total Students"
+                                title: "Total Teachers"
                                 value: "10"
                                 subtitle: "Enrolled this term"
 
@@ -67,7 +67,7 @@ Past_Student_Screen = '''
                                 icon_bg_color: 1, 0.9, 1, 1
                                 title: "Avg GPA"
                                 value: "3.59"
-                                subtitle: "Across all students"
+                                subtitle: "Across all Teachers"
 
 
                             StatCard:
@@ -102,7 +102,7 @@ Past_Student_Screen = '''
                                     orientation: "vertical"
                                     Widget:
                                     MDTextField:
-                                        hint_text: "Search students..."
+                                        hint_text: "Search Teachers..."
                                         mode: "fill"
                                         fill_color_normal: 1, 1, 1, 0
                                         active_line: False
@@ -111,7 +111,7 @@ Past_Student_Screen = '''
                                     Widget:
 
                             MDRoundFlatIconButton:
-                                id: grade_button_past_student  # Added ID
+                                id: grade_button_teacher  # Added ID
                                 text: "All Grades"
                                 icon: "chevron-down"
                                 icon_position: "right"  # Moves arrow to the right side
@@ -119,11 +119,11 @@ Past_Student_Screen = '''
                                 md_bg_color: 1, 1, 1, 1
                                 theme_text_color: "Custom"
                                 text_color: 0.3, 0.3, 0.4, 1
-                                on_release: app.grade_menu_past_student.open()  # Opens the menu
+                                on_release: app.grade_menu_teacher.open()  # Opens the menu
 
                             # Filters (Dropdown Placeholders)
                             MDRoundFlatIconButton:
-                                id: dept_button_past_student  # Added ID
+                                id: dept_button_teacher  # Added ID
                                 text: "All Departments"
                                 icon: "chevron-down"
                                 icon_position: "right"  # Moves arrow to the right side
@@ -131,7 +131,7 @@ Past_Student_Screen = '''
                                 md_bg_color: 1, 1, 1, 1
                                 theme_text_color: "Custom"
                                 text_color: 0.3, 0.3, 0.4, 1
-                                on_release: app.menu_past_student.open()  # Opens the menu
+                                on_release: app.menu_teacher.open()  # Opens the menu
                             
                             
 
@@ -183,27 +183,19 @@ Past_Student_Screen = '''
                                     font_style: "Caption"
                                     bold: True
                                 MDLabel:
-                                    text: "STUDENT"
+                                    text: "Teacher"
                                     size_hint_x: 0.3
                                     font_style: "Caption"
                                     bold: True
-                                MDLabel:
-                                    text: "DEPARTMENT"
-                                    size_hint_x: 0.2
-                                    font_style: "Caption"
-                                    bold: True
+                                
+                               
                                 MDLabel:
                                     text: "Date Joined"
                                     size_hint_x: 0.1
                                     font_style: "Caption"
                                     bold: True
                                 MDLabel:
-                                    text: "Attendance"
-                                    size_hint_x: 0.1
-                                    font_style: "Caption"
-                                    bold: True
-                                MDLabel:
-                                    text: "Assessment"
+                                    text: "Grades"
                                     size_hint_x: 0.1
                                     font_style: "Caption"
                                     bold: True
@@ -214,8 +206,8 @@ Past_Student_Screen = '''
                                     bold: True
                             # The RecycleView
                             RecycleView:
-                                id: rv_past_student
-                                viewclass: 'StudentRow'
+                                id: rv_teacher
+                                viewclass: 'TeacherRow'
                                 size_hint_y: None
                                 height: dp(270)  # Use dp for consistency across devices
                                 
@@ -247,7 +239,7 @@ Past_Student_Screen = '''
                                         width: 1
 
                                 MDLabel:
-                                    id: page_num_past_student
+                                    id: page_num_teacher
                                     text: "Page 1 of 5"
                                     font_style: "Caption"
                                     theme_text_color: "Secondary"
@@ -257,7 +249,7 @@ Past_Student_Screen = '''
                                 
                                 MDIconButton:
                                     icon: "chevron-left"
-                                    on_release: app.prev_page_Past_Student()
+                                    on_release: app.prev_page_Teacher()
                                 
                               
                                 # Optional: Page Numbers (simplified)
@@ -276,7 +268,7 @@ Past_Student_Screen = '''
                                         md_bg_color: 0.3, 0.4, 1, 0.1
                                         Widget:
                                         MDLabel:
-                                            id: cur_page_num_past_student
+                                            id: cur_page_num_teacher
                                             text: "1"
                                             font_style: "Caption"
                                             theme_text_color: "Secondary"
@@ -296,7 +288,7 @@ Past_Student_Screen = '''
                             
                                 MDIconButton:
                                     icon: "chevron-right"
-                                    on_release: app.next_page_Past_Student()
+                                    on_release: app.next_page_Teacher()
 
                         Widget:
 

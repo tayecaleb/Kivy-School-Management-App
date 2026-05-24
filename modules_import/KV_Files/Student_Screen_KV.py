@@ -92,7 +92,7 @@ Student_Screen = '''
                                 radius: [8, ]
                                 padding: ["12dp", 0, "12dp", 0]
                                 size_hint_x: None
-                                width: "300dp"
+                                width: "270dp"
                                 height: "44dp"
                                 MDIcon:
                                     icon: "magnify"
@@ -139,14 +139,19 @@ Student_Screen = '''
 
                             # Sort Filters
                             MDRoundFlatIconButton:
-                                text: "Name"
-                                icon: "swap-vertical"
+                                text: "10-02-2021"
+                                icon: "calendar"
                                 text_color: 0.3, 0.4, 1, 1
                                 line_color: 0.9, 0.9, 1, 1
                             
                             MDRoundFlatIconButton:
-                                text: "GPA"
-                                icon: "swap-vertical"
+                                text: "10-02-2021"
+                                icon: "calendar"
+                                text_color: 0.3, 0.4, 1, 1
+                                line_color: 0.9, 0.9, 1, 1
+
+                            MDRoundFlatIconButton:
+                                text: "reset"
                                 text_color: 0.3, 0.4, 1, 1
                                 line_color: 0.9, 0.9, 1, 1
 
@@ -188,17 +193,17 @@ Student_Screen = '''
                                     font_style: "Caption"
                                     bold: True
                                 MDLabel:
-                                    text: "YEAR"
+                                    text: "Date Joined"
                                     size_hint_x: 0.1
                                     font_style: "Caption"
                                     bold: True
                                 MDLabel:
-                                    text: "GPA"
+                                    text: "Attendance"
                                     size_hint_x: 0.1
                                     font_style: "Caption"
                                     bold: True
                                 MDLabel:
-                                    text: "STATUS"
+                                    text: "Assessment"
                                     size_hint_x: 0.1
                                     font_style: "Caption"
                                     bold: True

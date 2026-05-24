@@ -1,11 +1,11 @@
-Past_Student_Screen = '''
+Grade_Screen = '''
 
 # ScreenManager:
 #     ## transition: FadeTransition()
 #     id: screen_manager
     
     MDScreen:
-        name: "Past Student Screen"
+        name: "Grade Screen"
         EffectWidget:
             effects: [ew.VerticalBlurEffect(size=10), ew.HorizontalBlurEffect(size=10)]
             FitImage:
@@ -20,7 +20,7 @@ Past_Student_Screen = '''
             MDBoxLayout:
                 size_hint_x: .2
                 orientation: "vertical"
-                id: side_bar_past_student
+                id: side_bar_grade
                 
 
         
@@ -28,9 +28,9 @@ Past_Student_Screen = '''
                 size_hint_x: .8
                 orientation: "vertical"  
                 NavbarTop:
-                    text: "Students"
-                    bottomText: "StudentOS › Students"
-                    buttonText: "Add Student"
+                    text: "Grades"
+                    bottomText: "GradeOS › Grades"
+                    buttonText: "Add Grade"
 
                 MDBoxLayout:
                     orientation: "vertical"  
@@ -51,7 +51,7 @@ Past_Student_Screen = '''
                             StatCard:
                                 icon: "school"
                                 icon_bg_color: 0.9, 0.9, 1, 1
-                                title: "Total Students"
+                                title: "Total Grades"
                                 value: "10"
                                 subtitle: "Enrolled this term"
 
@@ -67,7 +67,7 @@ Past_Student_Screen = '''
                                 icon_bg_color: 1, 0.9, 1, 1
                                 title: "Avg GPA"
                                 value: "3.59"
-                                subtitle: "Across all students"
+                                subtitle: "Across all Grades"
 
 
                             StatCard:
@@ -102,7 +102,7 @@ Past_Student_Screen = '''
                                     orientation: "vertical"
                                     Widget:
                                     MDTextField:
-                                        hint_text: "Search students..."
+                                        hint_text: "Search Grades..."
                                         mode: "fill"
                                         fill_color_normal: 1, 1, 1, 0
                                         active_line: False
@@ -111,7 +111,7 @@ Past_Student_Screen = '''
                                     Widget:
 
                             MDRoundFlatIconButton:
-                                id: grade_button_past_student  # Added ID
+                                id: grade_button_grade  # Added ID
                                 text: "All Grades"
                                 icon: "chevron-down"
                                 icon_position: "right"  # Moves arrow to the right side
@@ -119,11 +119,11 @@ Past_Student_Screen = '''
                                 md_bg_color: 1, 1, 1, 1
                                 theme_text_color: "Custom"
                                 text_color: 0.3, 0.3, 0.4, 1
-                                on_release: app.grade_menu_past_student.open()  # Opens the menu
+                                on_release: app.grade_menu_grade.open()  # Opens the menu
 
                             # Filters (Dropdown Placeholders)
                             MDRoundFlatIconButton:
-                                id: dept_button_past_student  # Added ID
+                                id: dept_button_grade  # Added ID
                                 text: "All Departments"
                                 icon: "chevron-down"
                                 icon_position: "right"  # Moves arrow to the right side
@@ -131,7 +131,7 @@ Past_Student_Screen = '''
                                 md_bg_color: 1, 1, 1, 1
                                 theme_text_color: "Custom"
                                 text_color: 0.3, 0.3, 0.4, 1
-                                on_release: app.menu_past_student.open()  # Opens the menu
+                                on_release: app.menu_grade.open()  # Opens the menu
                             
                             
 
@@ -183,27 +183,18 @@ Past_Student_Screen = '''
                                     font_style: "Caption"
                                     bold: True
                                 MDLabel:
-                                    text: "STUDENT"
+                                    text: "Grade"
                                     size_hint_x: 0.3
                                     font_style: "Caption"
                                     bold: True
+                                
                                 MDLabel:
-                                    text: "DEPARTMENT"
-                                    size_hint_x: 0.2
-                                    font_style: "Caption"
-                                    bold: True
-                                MDLabel:
-                                    text: "Date Joined"
+                                    text: "Date Created"
                                     size_hint_x: 0.1
                                     font_style: "Caption"
                                     bold: True
                                 MDLabel:
-                                    text: "Attendance"
-                                    size_hint_x: 0.1
-                                    font_style: "Caption"
-                                    bold: True
-                                MDLabel:
-                                    text: "Assessment"
+                                    text: "Teachers"
                                     size_hint_x: 0.1
                                     font_style: "Caption"
                                     bold: True
@@ -214,8 +205,8 @@ Past_Student_Screen = '''
                                     bold: True
                             # The RecycleView
                             RecycleView:
-                                id: rv_past_student
-                                viewclass: 'StudentRow'
+                                id: rv_grade
+                                viewclass: 'GradeRow'
                                 size_hint_y: None
                                 height: dp(270)  # Use dp for consistency across devices
                                 
@@ -247,7 +238,7 @@ Past_Student_Screen = '''
                                         width: 1
 
                                 MDLabel:
-                                    id: page_num_past_student
+                                    id: page_num_grade
                                     text: "Page 1 of 5"
                                     font_style: "Caption"
                                     theme_text_color: "Secondary"
@@ -257,7 +248,7 @@ Past_Student_Screen = '''
                                 
                                 MDIconButton:
                                     icon: "chevron-left"
-                                    on_release: app.prev_page_Past_Student()
+                                    on_release: app.prev_page_grade()
                                 
                               
                                 # Optional: Page Numbers (simplified)
@@ -276,7 +267,7 @@ Past_Student_Screen = '''
                                         md_bg_color: 0.3, 0.4, 1, 0.1
                                         Widget:
                                         MDLabel:
-                                            id: cur_page_num_past_student
+                                            id: cur_page_num_grade
                                             text: "1"
                                             font_style: "Caption"
                                             theme_text_color: "Secondary"
@@ -286,17 +277,9 @@ Past_Student_Screen = '''
                                         size_hint_y: None
                                         height: 10
 
-                                # MDFlatButton:
-                                    
-                                #     id: cur_page_num
-                                #     text: "1"
-                                    
-                                #     text_color: 0.3, 0.4, 1, 1
-
-                            
                                 MDIconButton:
                                     icon: "chevron-right"
-                                    on_release: app.next_page_Past_Student()
+                                    on_release: app.next_page_grade()
 
                         Widget:
 

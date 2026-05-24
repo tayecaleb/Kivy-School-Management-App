@@ -3,14 +3,49 @@ from  app_modules_widget_imports import *
 
 class StudentRow(RecycleDataViewBehavior, MDBoxLayout):
     id_text = StringProperty()
-    name = StringProperty()
-    email = StringProperty()
+    names = StringProperty()
+    grade = StringProperty()
     initials = StringProperty()
     avatar_color = ColorProperty()
     dept = StringProperty()
-    year = StringProperty()
-    gpa = StringProperty()
-    status = StringProperty()
+    date_joined = StringProperty()
+    # gpa = StringProperty()
+    # status = StringProperty()
+
+    def refresh_view_attrs(self, rv, index, data):
+        # This handles the data updates when scrolling
+        return super().refresh_view_attrs(rv, index, data)
+
+class TeacherRow(RecycleDataViewBehavior, MDBoxLayout):
+    id_text = StringProperty()
+    names = StringProperty()
+    email = StringProperty()
+    initials = StringProperty()
+    avatar_color = ColorProperty()
+    date_joined = StringProperty()
+    # gpa = StringProperty()
+    # status = StringProperty()
+
+    def refresh_view_attrs(self, rv, index, data):
+        # This handles the data updates when scrolling
+        return super().refresh_view_attrs(rv, index, data)
+
+class GradeRow(RecycleDataViewBehavior, MDBoxLayout):
+    id_text = StringProperty()
+    grade = StringProperty()
+    departments = StringProperty()
+    date_created = StringProperty()
+
+    def refresh_view_attrs(self, rv, index, data):
+        # This handles the data updates when scrolling
+        return super().refresh_view_attrs(rv, index, data)
+
+class CourseRow(RecycleDataViewBehavior, MDBoxLayout):
+    id_text = StringProperty()
+    course = StringProperty()
+    departments = StringProperty()
+    grades = StringProperty()
+    date_created = StringProperty()
 
     def refresh_view_attrs(self, rv, index, data):
         # This handles the data updates when scrolling

@@ -8,7 +8,7 @@ from kivy.lang import Builder
 from kivymd.uix.menu import MDDropdownMenu
 from kivy.metrics import dp
 
-Window.size = (1200, 680)
+Window.size = (1300, 680)
 
 
 

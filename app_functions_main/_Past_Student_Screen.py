@@ -37,13 +37,13 @@ def loadPastStudentPage(self):
             "viewclass": "OneLineListItem",
             "text": dept,
             "height": dp(54),
-            "on_release": lambda x=dept: self.set_item(x),
+            "on_release": lambda x=dept: self.set_item_past_student(x),
         } for dept in departments
     ]
     
     # 3. Initialize the menu object
-    self.menu = MDDropdownMenu(
-        caller=self.root.ids.dept_button, # This links menu to the button
+    self.menu_past_student = MDDropdownMenu(
+        caller=self.root.ids.dept_button_past_student, # This links menu to the button
         items=menu_items,
         width_mult=4,
     )
@@ -57,29 +57,64 @@ def loadPastStudentPage(self):
             "viewclass": "OneLineListItem",
             "text": grade,
             "height": dp(54),
-            "on_release": lambda x=grade: self.set_grade_item(x),
+            "on_release": lambda x=grade: self.set_grade_item_past_student(x),
         } for grade in grades
     ]
     
     # 3. Initialize the menu object
-    self.grade_menu = MDDropdownMenu(
-        caller=self.root.ids.grade_button, # This links menu to the button
+    self.grade_menu_past_student = MDDropdownMenu(
+        caller=self.root.ids.grade_button_past_student, # This links menu to the button
         items=menu_items,
         width_mult=4,
     )
 
-    self.all_students = [
+    self.all_students_past_student = [
         {
             "id_text": f"STU-{str(i).zfill(3)}",
-            "name": f"Student {i}",
-            "email": f"student{i}@uni.edu",
-            "initials": "S",
+            "names": f"Jack Ola {i}",
+            "grade": f"SSS2",
+            "initials": "J",
             "avatar_color": [0.3, 0.4, 1, 1],
-            "dept": "Computer Science",
-            "year": "Year 3",
-            "gpa": "3.85",
-            "status": "Active"
+            "dept": "Art",
+            "date_joined": "12-05-2024",
+            # "attendance": "3.85",
+            # "status": "Active"
         } for i in range(1, 51)
     ]
-    self.update_table_Student()
+    self.update_table_Past_Student()
     
+
+
+def update_table_Past_Student(self):
+    # Calculate start and end index
+    start = self.current_page_past_student * self.items_per_page_past_student
+    end = start + self.items_per_page_past_student
+    
+    # Slice the data and update RecycleView
+    self.root.ids.rv_past_student.data = self.all_students_past_student[start:end]
+    
+    # Update page label
+    total_pages = len(self.all_students_past_student) // self.items_per_page_past_student
+    self.root.ids.page_num_past_student.text = f"Page {self.current_page_past_student + 1} of {total_pages}"
+    self.root.ids.cur_page_num_past_student.text = str(self.current_page_past_student + 1)
+
+def next_page_Past_Student(self):
+    if (self.current_page_past_student + 1) * self.items_per_page_past_student < len(self.all_students_past_student):
+        self.current_page_past_student += 1
+        self.update_table_Past_Student()
+
+def prev_page_Past_Student(self):
+    if self.current_page_past_student > 0:
+        self.current_page_past_student -= 1
+        self.update_table_Past_Student()
+
+def set_grade_item_Past_Student(self, text_item):
+    # Update the button text to show the selection
+    self.root.ids.grade_button_past_student.text = text_item
+    self.grade_menu_past_student.dismiss()
+    
+
+def set_item_Past_Student(self, text_item):
+    # Update the button text to show the selection
+    self.root.ids.dept_button_past_student.text = text_item
+    self.menu_past_student.dismiss()
